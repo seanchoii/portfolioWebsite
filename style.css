@@ -110,7 +110,9 @@ body{
 
   .buttons button:hover{
     transform: scale(1.1) perspective(1px);
+    background-color: #eceaea;
     color:#000;
+    animation-play-state: paused;
   }
 
   .buttons button:active{
@@ -126,7 +128,18 @@ body{
     height:50px;
     width: 50px;
   }
-
+  
+  @keyframes animateDown {
+    0% {
+        transform: translateY(-150px); /* Initial state at 0% */
+      }
+      50% {
+        transform: translateY(20px); /* Middle state at 50% */
+      }
+      100% {
+        transform: translateY(0); /* Final state at 100% */
+      }
+  }
  .topButtons{
     margin-left:30px;
  }
@@ -142,50 +155,82 @@ body{
     bottom:0px;
     width:100%;
     border:2px solid;
+    animation: slideUp 3s ease forwards;
+
  }
 .options{
     padding:10px;
     border:2px solid;
     text-align:center;
+
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
 }
 
 
 
 
-
-
 /* adding responsiveness to phone screens*/
-@media screen and (max-width:600px) {
+@media screen and (max-width:425px) {
 
     .bottomGrid{
         position:absolute;
         background:#fff;
         display:grid;
-        grid-template-columns: 10% 70% 20%;
+        grid-template-columns: 10% 60% 30%;
         bottom:0px;
         width:100%;
         border:2px solid;
+        
      }
     .options{
         padding:10px;
         border:2px solid;
         text-align:center;
-        font-size:10px;
+        font-size: 8px;
     }
 
     .bubbleProfile{
         width:70%;        
-        right:100px;
-        top:320px;
-        height:22%;
+        right:60px;
+        top:300px;
+        height:23%;
     }
 
     .bubbleContact{
         width:70%;        
-        right:100px;
+        right:60px;
         top:320px;
         height:7%;
     }
-
-
+    .buttons button{
+        font-size:8px;
+        width:60px;
+        box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+        1px 1px 0 0 #000000,
+        2px 2px 0 0 #000000,
+        3px 3px 0 0 #000000,
+        4px 4px 0 0 #000000,
+        5px 5px 0 0 #000000,
+        6px 6px 0 0 #000000,
+        7px 7px 0 0 #000000,
+        8px 8px 0 0 #000000,
+        9px 9px 0 0 #000000;
+        
+    }
+    .buttons img{
+        width:25px;
+        height:25px;
+    }
+    .logo{
+        right:50px;
+        font-size:8px;
+    }
 }
